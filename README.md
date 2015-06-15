@@ -43,4 +43,4 @@ I would like to play a two-player game
 
 
 Current status:
-We have created a basic game for a 1x1 board, that allows a player to create a board, a ship, place the ship, and fire, thus winning the game.
+Skateboard
