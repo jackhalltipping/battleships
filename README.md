@@ -43,4 +43,4 @@ I would like to play a two-player game
 
 
 Current status:
-Skateboard
+Scooter
