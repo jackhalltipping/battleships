@@ -16,8 +16,14 @@ class Board
     'miss!'
   end
 
-  def recieve_hit guess
-    unless ships.any?{|x| x == 'guess'} == true
+  def receive_hit guess
+    hit = false
+    ships.each do |ship|
+      hit = true if ship.position? == guess
+    end
+    if hit
+      'hit!'
+    else
       report_miss
     end
   end

@@ -10,10 +10,17 @@ describe Board do
     expect(subject.place ship).to eq [ship]
   end
 
-  it 'can check whether a ship is at position' do
-    ship1 = double :ship, position: 'C2'
-    ship2 = double :ship, position: 'D4'
-    ship3 = double :ship, position: 'E5'
-    expect(subject.recieve_hit 'F1').to eq 'miss!'
+  it 'can check if a ship is not at position' do
+    ship1 = double :ship, position?: 'C2'
+    board = Board.new
+    board.place ship1
+    expect(board.receive_hit 'F1').to eq 'miss!'
+  end
+
+  it 'can check if a ship is at a position' do
+    ship1 = double :ship, position?: 'C2'
+    board = Board.new
+    board.place ship1
+    expect(board.receive_hit 'C2').to eq 'hit!'
   end
 end
