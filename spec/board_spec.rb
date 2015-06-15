@@ -12,15 +12,13 @@ describe Board do
 
   it 'can check if a ship is not at position' do
     ship1 = double :ship, position?: 'C2'
-    board = Board.new
-    board.place ship1
-    expect(board.receive_hit 'F1').to eq 'miss!'
+    subject.place ship1
+    expect(subject.receive_hit 'F1').to eq 'miss!'
   end
 
   it 'can check if a ship is at a position' do
     ship1 = double :ship, position?: 'C2'
-    board = Board.new
-    board.place ship1
-    expect(board.receive_hit 'C2').to eq 'hit!'
+    subject.place ship1
+    expect(subject.receive_hit 'C2').to eq 'hit!'
   end
 end
