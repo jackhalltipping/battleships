@@ -21,7 +21,7 @@ describe "accept ship" do
   end
 
   it "has a ship once one is placed" do
-    subject.accept ship, :A1
+    subject.accept :ship, :A1
     emptycheck = subject.board.all?{ |x| x[:ship].nil? }
     expect(emptycheck).to eq false
   end
@@ -41,7 +41,11 @@ describe "accept ship" do
     expect{ subject.accept :ship1, :X3 }.to raise_error 'invalid location'
   end
 
-  xit 'can place a ship of more then size 1 on board'
+  it 'with size 2' do
+    ship1 = double :ship, size: 2
+    subject.accept ship1, :A1
+    expect(subject.board.size).to eq 2
+  end
 
 
 end
