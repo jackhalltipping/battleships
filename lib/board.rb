@@ -3,17 +3,26 @@ class Board
   attr_reader :board
 
   def initialize
-    @board = [{coords: :A1, ship: nil}]
+    @board = []
   end
 
   def accept ship, position
-    board.pop
-    board << {coords: :A1, ship: ship}
+    ## fail if position already exists
+    ## fail if position is not on board
+    ## repeat checks for entire length of ship
+
+    board << {coords: position, ship: ship}
   end
 
   def report position
     status = board.select{ |x| x[:coords] == position }
-    status[0][:ship] == nil ? "Miss" : "Hit"
+    status == [] ? "Miss" : "Hit"
   end
 
 end
+
+
+
+"place ship at A1, A2" => ship = [A1, A2]
+"place ship at A1, A2" => board << {A1. ship}, {A2,ship}
+

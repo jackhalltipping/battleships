@@ -29,10 +29,19 @@ describe Board do
 
   it "can report a hit" do
     ship = double :ship
-    subject. accept ship, :A1
+    subject.accept ship, :A1
     response = subject.report :A1
     expect(response).to eq "Hit"
   end
+
+  it "can accept 2 ships" do
+    ship1 = double :ship
+    ship2 = double :ship
+    subject.accept ship1, :A1
+    subject.accept ship2, :A2
+    expect(subject.board).to eq [{coords: :A1, ship: ship1}, {coords: :A2, ship: ship2}]
+  end
+
 
 
 end
