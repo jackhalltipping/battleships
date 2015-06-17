@@ -4,6 +4,7 @@ describe Board do
   let(:ship) {double :ship}
   let(:ship1) {double :ship}
   let(:ship2) {double :ship}
+  let(:ship3) {double :ship, 2}
 
   it { is_expected.to respond_to(:accept).with(2).argument }
 
@@ -41,13 +42,15 @@ describe "accept ship" do
     expect{ subject.accept :ship1, :X3 }.to raise_error 'invalid location'
   end
 
-  it 'with size 2' do
-    ship1 = double :ship, size: 2
-    subject.accept ship1, :A1
-    expect(subject.board.size).to eq 2
+
+end
+
+describe "place" do
+
+  it "places ship with 2 coords" do
+    subject.place :ship3, :A1
+    expect(subject).to eq [{coords: :A1, ship: :ship3}, {coords: :A2, ship: :ship3}]
   end
-
-
 end
 
 describe "report" do
@@ -67,3 +70,9 @@ end
 
 
 end
+
+# xit 'with size 2' do
+#   ship1 = double :ship, size: 2
+#   subject.accept ship1, :A1
+#   expect(subject.board.size).to eq 2
+# end
