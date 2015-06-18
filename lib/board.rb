@@ -19,41 +19,16 @@ COORDS = [:A1, :A2, :A3, :A4, :A5, :A6, :A7, :A8, :A9, :A10,
     @board = []
   end
 
-  # board accepts the position
   def accept ship, position
     fail 'location occupied' if occupied?(position)
     fail 'invalid location' if invalid?(position)
     ## repeat checks for entire length of ship
-
     board << {coords: position, ship: ship}
   end
 
   def report position
     status = board.select{ |x| x[:coords] == position }
     status == [] ? "Miss" : "Hit"
-  end
-
-  # player places ship on board
-  def place ship, position
-    ship.size.times do
-      board << {coords: position, ship: ship}
-      position = position.next
-    end
-      @position = []
-
-
-# Split 'position' into hash A1 ==> 'A : 1'
-# Add ship size to
-
-
-  end
-
-  def find_next_coordinate coordinate, direction
-    next_coordinate = direction == :horizontal ? next_coordinate.next :
-  end
-
-  def separate_letters_from_numbers
-
   end
 
   def occupied? position
@@ -64,8 +39,19 @@ COORDS = [:A1, :A2, :A3, :A4, :A5, :A6, :A7, :A8, :A9, :A10,
     !COORDS.include?(position)
   end
 
-
 end
+# player places ship on board
+# def place ship, position
+#   ship.size.times do
+#     board << {coords: position, ship: ship}
+#     position = position.next
+#   end
+#     @position = []
+# end
+
+# def find_next_coordinate coordinate, direction
+#   next_coordinate = direction == :horizontal ? next_coordinate.next :
+# end
 
 
 #"place ship at A1, A2" => ship = [A1, A2]

@@ -20,6 +20,10 @@ end
       end
     end
   end
+
+  def creating_board2
+    board = ('A'..'J').zip(1..10).to_h
+  end
 end
 
 # number_coords = [1..10]
