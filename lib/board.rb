@@ -60,17 +60,29 @@ COORDS = [:A1, :A2, :A3, :A4, :A5, :A6, :A7, :A8, :A9, :A10,
           :I1, :I2, :I3, :I4, :I5, :I6, :I7, :I8, :I9, :I10,
           :J1, :J2, :J3, :J4, :J5, :J6, :J7, :J8, :J9, :J10]
 
-  attr_reader :board
+  attr_reader :board, :grid, :coords, :ships
 
   def initialize
     @board = []
+    @coords = []
+    @ships = []
+
+  end
+
+  def accept_ship ship, positions
+    while positions.length > 0
+      accept(ship, positions[0])
+      positions = positions[1..-1]
+    end
   end
 
   def accept ship, position
     fail 'location occupied' if occupied?(position)
     fail 'invalid location' if invalid?(position)
     ## repeat checks for entire length of ship
-    board << {coords: position, ship: ship}
+    board << {coords: position, ships: ship}
+    coords << [position]
+    ships << [ship]
   end
 
   def report position
