@@ -70,7 +70,6 @@ COORDS = [:A1, :A2, :A3, :A4, :A5, :A6, :A7, :A8, :A9, :A10,
     fail 'location occupied' if occupied?(position)
     fail 'invalid location' if invalid?(position)
     ## repeat checks for entire length of ship
-
     board << {coords: position, ship: ship}
   end
 
@@ -87,8 +86,19 @@ COORDS = [:A1, :A2, :A3, :A4, :A5, :A6, :A7, :A8, :A9, :A10,
     !COORDS.include?(position)
   end
 
-  
 end
+# player places ship on board
+# def place ship, position
+#   ship.size.times do
+#     board << {coords: position, ship: ship}
+#     position = position.next
+#   end
+#     @position = []
+# end
+
+# def find_next_coordinate coordinate, direction
+#   next_coordinate = direction == :horizontal ? next_coordinate.next :
+# end
 
 
 #"place ship at A1, A2" => ship = [A1, A2]
