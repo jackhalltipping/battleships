@@ -1,6 +1,6 @@
 # battleships
 
-****BRANCH BROKEN, WORKING FROM SKATEBOARD TO SCOOTER TO BIKE TO MOTORBIKE TO CAR :)********
+This repo has multiple different branches due to switching pair partners daily. We decided to make a new branch for each switch be able to easily look back at each commit we made with our respective partners, and to also get a feel for what it is like working on different branches.
 
 
 Our objective is to create the game battleships implemented with
